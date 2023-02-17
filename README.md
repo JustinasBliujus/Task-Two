@@ -1,7 +1,7 @@
 # V0.1 #
 
 
-This project version is a simple c++ application.
+This version of the project is a simple c++ application.
 It calculates final grade of a student using average or median,
 with an option to generate random grades. It uses input from console.
 
