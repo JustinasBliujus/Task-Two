@@ -2,7 +2,7 @@
 
 
 Additions in this version of the project:
-Improved random grade generation then using console input,
+improved random grade generation then using console input,
 divided program into two files for better code reading.
 
 
