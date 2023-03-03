@@ -2,8 +2,7 @@
 
 
 Additions in this version of the project:
-Option to choose input from a file.
-Alphabetical sorting of output.
+Option to choose input from a file, alphabetical sorting of output.
 
 ## Usage ##
 
