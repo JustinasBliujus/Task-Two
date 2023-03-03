@@ -2,9 +2,13 @@
 
 
 Additions in this version of the project:
-Option to choose input from a file, alphabetical sorting of output.
+Improved random grade generation then using console input,
+divided program into two files for better code reading.
+
 
 ## Usage ##
 
- _v02.cpp_ file needs header file _Mylib.h_ in order to work.
+ _v03.cpp_ file has the main function.
+ _v03funkcijos.cpp_ file has the functions used in main.
+ _antrastes.h_ file has prototypes of functions and used directories.
 
