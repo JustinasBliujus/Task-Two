@@ -1,4 +1,4 @@
-# V0.2 #
+# V0.3 #
 
 
 Additions in this version of the project:
