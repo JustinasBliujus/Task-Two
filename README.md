@@ -1,12 +1,11 @@
-# V0.1 #
+# V0.2 #
 
 
-This version of the project is a simple c++ application.
-It calculates final grade of a student using average or median,
-with an option to generate random grades. It uses input from console.
+Additions in this version of the project:
+Option to choose input from a file.
+Alphabetical sorting of output.
 
 ## Usage ##
 
-There is two different program applications, one using arrays _v01array.cpp_ and one using vectors _v01vector.cpp_.
-__Both__ files need header file _Mylib.h_ in order to work.
-The only difference in usage is that array version asks for number of students, while vector version waits for specific input to stop.
+ _v02.cpp_ file needs header file _Mylib.h_ in order to work.
+
