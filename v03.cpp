@@ -1,0 +1,65 @@
+#include "antrastes.h"
+
+
+int main(int argc, char* argv[])                                                                                                                              
+{
+    char tipas;
+    cout <<"Bus naudojamas duomenu failas (f) ar komandine eilute (k)?"<<endl;
+    while(true){
+        if(cin >> tipas && (tipas == 'f' || tipas == 'k')){
+            break;
+        }
+        else{
+            cout << "Netinkamas namu darbu skaicius. Bandykite dar karta." << endl;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+         }
+    }
+    vector<studentas> grupe;
+    int paz_size;
+    if (tipas == 'k'){
+        while (true) { 
+            cout << "Kiek isviso buvo namu darbu? ";
+            if (cin >> paz_size && paz_size > 0) {
+                break;
+            } 
+            else {
+                cout << "Netinkamas namu darbu skaicius. Bandykite dar karta." << endl;
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            }
+        }
+        char atsakymas;
+        cout << "Naudosime vidurki (v) ar mediana (m) ? Irasykite pasirinkta raide: ";
+        while (true) {
+            if (cin >> atsakymas && (atsakymas == 'v' || atsakymas == 'm')) {
+                break;
+            }
+            else{
+                cout << "Ivesta netinkama raide. Iveskite dar karta" << endl;
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            }
+        }
+        while (true) {
+        studentas temp;
+        pild(temp, paz_size);
+        if (temp.vardas == "baigti" && temp.pavarde == "darba") {
+            break;
+        }
+        grupe.push_back(temp);
+        }
+        cout << setw(15) << "Vardas" << setw(15) << "Pavarde" << setw(20) << "Galutinis(vid)" << setw(20) << "Galutinis(med)" << endl;
+        for (int i = 0; i < grupe.size(); i++)
+        {
+            spausd(grupe[i], atsakymas);
+            cout << endl;
+        }
+    } 
+    else if(tipas == 'f'){
+        Is_Failo(grupe);      
+    }
+    for(auto &i:grupe) i.paz.clear();
+        grupe.clear();
+        return 0;
+}
