@@ -154,7 +154,7 @@ Number of grades: 5;
   
     #### Dalijimo i dvi dalis strategiju palyginimas 
     (1 strategija kuriant du naujus konteineriu,
-    2 strategija kuriant viena nauja, ir senaji konteineri).
+    2 strategija kuriant viena nauja ir naudojant senaji konteineri).
   
   | Įrašų kiekis 	| Duomenų strukūra 	| Trukmė (1) 	| Trukmė (2) |
   |--------------	|------------------	|------------	|------------|
