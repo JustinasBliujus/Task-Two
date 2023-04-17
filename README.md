@@ -5,6 +5,16 @@ Additions in this version of the project:
 Added table of analysed timers based on division strategy.
 Updated algorithm of division point search.
 
+
+# Previous releases #
+0.1 - initial prototype of the program.
+0.2 - added file reading and sorting.
+0.3 - code division, random grade generation.
+0.4 - file generation, program time analysis.
+0.5 - program analysis with 3 data structures.
+0.5fix - option to choose between generated and existing files.
+
+
 ## Usage ##
  Every folder contains independent program with different data structures.
  Folders _Vector_,_Deque_,_List_ contain program based on first division strategy.
@@ -14,6 +24,8 @@ Updated algorithm of division point search.
  _generator.cpp_ file has the function to generate new files.
  _antrastes.h_ file has prototypes of functions and used directories.
  _analize.cpp_ file has the function for analysing programs work.
+_Makefile_ file connecting program together, o3 flag for faster performance.
+
 
 ## Program Testing ##
 
@@ -166,10 +178,20 @@ Number of grades: 5;
   |              	| Deque            	| 49.2346  	  | 45.56989   |
   |              	| List             	| 20.2182  	  | 27.45686   |
   
+  Antroji strategija pagreitino vector ir deque darbą, tačiau sulėtino listo darbą.
+  
+  
   System:
   Processor	Intel(R) Pentium(R) CPU G4560 @ 3.50GHz, 3504 Mhz, 2 Core(s), 4 Logical Processor(s)
   Installed Physical Memory (RAM)	8.00 GB
   SSD
   
+  ## User Manual ##
+  Use makefile to connect program files together.
   
-
+1. User is asked for input (f,k or a); f for one time program usage from a file,
+k for one time program usage from console, a for program analysis.
+2. f -> input file name -> get results.
+3. k -> number of homework tasks -> calculate result with (m) median or (v) average -> input students name 
+-> input his grades or choose them to be generated -> repeat. Input "baigti darba" to get results.
+4. a -> input number of files to be tested -> choose (g) for new file or (s) for existing file -> input file name -> get results.
