@@ -15,7 +15,7 @@ Updated algorithm of division point search.
  _antrastes.h_ file has prototypes of functions and used directories.
  _analize.cpp_ file has the function for analysing programs work.
 
-## Program Testing - strategy 1 ##
+## Program Testing ##
 
 Number of grades: 5;
 
@@ -140,29 +140,31 @@ Number of grades: 5;
   |              	| List             	| 119.167  	  |
   
   
-    #### Dalijimo i dvi dalis strategiju palyginimas
+    #### Dalijimo i dvi dalis strategiju palyginimas 
+    (1 strategija kuriant du naujus konteineriu,
+    2 strategija kuriant viena nauja, ir senaji konteineri).
   
   | Įrašų kiekis 	| Duomenų strukūra 	| Trukmė (1) 	| Trukmė (2) |
   |--------------	|------------------	|------------	|------------|
-  | 1000         	| Vector           	| 0.002305   	| 0.001883---|
-  |              	| Deque            	| 0.005348  	 | 0.004232---|
-  |              	| List             	| 0.000718   	| 0.001818---|
+  | 1000         	| Vector           	| 0.002305   	| 0.001883   |
+  |              	| Deque            	| 0.005348  	 | 0.004232   |
+  |              	| List             	| 0.000718   	| 0.001818   |
   |              	|                  	|            	|
-  | 10000        	| Vector           	| 0.017539   	| 0.013551---|
-  |              	| Deque            	| 0.048986   	| 0.041881---|
-  |              	| List             	| 0.00885  	  | 0.027050---|
+  | 10000        	| Vector           	| 0.017539   	| 0.013551   |
+  |              	| Deque            	| 0.048986   	| 0.041881   |
+  |              	| List             	| 0.00885  	  | 0.027050   |
   |              	|                  	|            	|
-  | 100000       	| Vector           	| 0.204198   	| 0.171799---|
-  |              	| Deque            	| 0.542224   	| 0.495811---|
-  |              	| List             	| 0.129268  	 | 0.268597---|
+  | 100000       	| Vector           	| 0.204198   	| 0.171799   |
+  |              	| Deque            	| 0.542224   	| 0.495811   |
+  |              	| List             	| 0.129268  	 | 0.268597   |
   |              	|                  	|            	|
-  | 1000000      	| Vector           	| 2.56121  	  | 2.15964----|
-  |              	| Deque            	| 7.26168  	  | 5.94452----|
-  |              	| List             	| 1.47823  	  | 2.61053----|
+  | 1000000      	| Vector           	| 2.56121  	  | 2.159642   |
+  |              	| Deque            	| 7.26168  	  | 5.944521   |
+  |              	| List             	| 1.47823  	  | 2.610536   |
   |              	|                  	|            	|
-  | 10000000     	| Vector           	| 30.5022    	| 26.2451----|
-  |              	| Deque            	| 49.2346  	  | 45.5698----|
-  |              	| List             	| 20.2182  	  | 27.4568----|
+  | 10000000     	| Vector           	| 30.5022    	| 26.24518   |
+  |              	| Deque            	| 49.2346  	  | 45.56989   |
+  |              	| List             	| 20.2182  	  | 27.45686   |
   
   System:
   Processor	Intel(R) Pentium(R) CPU G4560 @ 3.50GHz, 3504 Mhz, 2 Core(s), 4 Logical Processor(s)
