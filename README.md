@@ -1,21 +1,21 @@
-# V0.5 #
+# V1.0 #
 
 
 Additions in this version of the project:
-User now has an option to choose between existing or generated files.
-Added table of analysed timers of each program.
+Added table of analysed timers based on division strategy.
 Updated algorithm of division point search.
 
 ## Usage ##
  Every folder contains independent program with different data structures.
- 
- _v04.cpp_ file has the main function.
- _v04funkcijos.cpp_ file has the functions used in main.
+ Folders _Vector_,_Deque_,_List_ contain program based on first division strategy.
+ Folders _Vector2_,_Deque2_,_List2_ contain program based on second division strategy.
+ _v05.cpp_ file has the main function.
+ _v05funkcijos.cpp_ file has the functions used in main.
  _generator.cpp_ file has the function to generate new files.
  _antrastes.h_ file has prototypes of functions and used directories.
  _analize.cpp_ file has the function for analysing programs work.
 
-## Program Testing ##
+## Program Testing - strategy 1 ##
 
 Number of grades: 5;
 
@@ -138,6 +138,31 @@ Number of grades: 5;
   | 10000000     	| Vector           	| 114.53     	|
   |              	| Deque            	| 153.1603  	 |
   |              	| List             	| 119.167  	  |
+  
+  
+    #### Dalijimo i dvi dalis strategiju palyginimas
+  
+  | Įrašų kiekis 	| Duomenų strukūra 	| Trukmė (1) 	| Trukmė (2) |
+  |--------------	|------------------	|------------	|------------|
+  | 1000         	| Vector           	| 0.002305   	| 0.001883---|
+  |              	| Deque            	| 0.005348  	 | 0.004232---|
+  |              	| List             	| 0.000718   	| 0.001818---|
+  |              	|                  	|            	|
+  | 10000        	| Vector           	| 0.017539   	| 0.013551---|
+  |              	| Deque            	| 0.048986   	| 0.041881---|
+  |              	| List             	| 0.00885  	  | 0.027050---|
+  |              	|                  	|            	|
+  | 100000       	| Vector           	| 0.204198   	| 0.171799---|
+  |              	| Deque            	| 0.542224   	| 0.495811---|
+  |              	| List             	| 0.129268  	 | 0.268597---|
+  |              	|                  	|            	|
+  | 1000000      	| Vector           	| 2.56121  	  | 2.15964----|
+  |              	| Deque            	| 7.26168  	  | 5.94452----|
+  |              	| List             	| 1.47823  	  | 2.61053----|
+  |              	|                  	|            	|
+  | 10000000     	| Vector           	| 30.5022    	| 26.2451----|
+  |              	| Deque            	| 49.2346  	  | 45.5698----|
+  |              	| List             	| 20.2182  	  | 27.4568----|
   
   System:
   Processor	Intel(R) Pentium(R) CPU G4560 @ 3.50GHz, 3504 Mhz, 2 Core(s), 4 Logical Processor(s)
