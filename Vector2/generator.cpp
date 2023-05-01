@@ -45,12 +45,12 @@ string generator()
   {
     std::cerr << "Failed to create file!" << endl;
   }
-  file << setw(15) << "Vardas" << setw(15) << "Pavarde";
-  for (int i = 0; i < pz_sk; i++)
-  {
-    file << setw(5) << "nd" + std::to_string(i + 1) << " ";
-  }
-  file << setw(10) << "egzaminas" << endl;
+  // file << setw(15) << "Vardas" << setw(15) << "Pavarde";
+  // for (int i = 0; i < pz_sk; i++)
+  // {
+  //   file << setw(5) << "nd" + std::to_string(i + 1) << " ";
+  // }
+  //  file << setw(10) << "egzaminas" << endl;
 
   for (int i = 1; i <= sk_studentu; i++)
   {
