@@ -2,9 +2,9 @@
 
 
 Additions in this version of the project:
-Struct updated to class.
+struct updated to class.
 O1,O2 and O3 flags compared.
-struct and class performance analytics.
+Struct and class performance analytics.
 
 
 # Previous releases #
@@ -202,9 +202,12 @@ k for one time program usage from console, a for program analysis.
 
 Flag perfomance analysis with 10 million students (5grades each);
 
-|       | None 	 | O1	 | O2	 | O3    |
+|       | None 	 | O1	   | O2	   | O3    |
+|-------|--------|-------|-------|-------|
 | Laikas| 110.102|81.9272|71.3786|80.6643|
+|       |        |       |       |       |
 | Dydis | 3,144KB|3,283KB|3,140KB|3,151KB|
+
 Laikas - time the program took in seconds.
 Dydis - .exe file size.
 
@@ -212,7 +215,9 @@ Dydis - .exe file size.
 Used O2 flag since its the fastest.
 
 |Number of students| 100000  | 1000000|10000000|
+|------------------|---------|--------|--------|
 |Class (sec)       | 0.84666 |7.7331  |71.9592 |
+|                  |         |        |        |
 |Struct (sec)      | 0.925417|8.6865  |82.3759 |
 
 Overall, class is faster and code is easier to read using it.
