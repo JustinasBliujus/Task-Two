@@ -1,9 +1,10 @@
-# V1.0 #
+# V1.1 #
 
 
 Additions in this version of the project:
-Added table of analysed timers based on division strategy.
-Updated algorithm of division point search.
+Struct updated to class.
+O1,O2 and O3 flags compared
+struct and class performance analytics.
 
 
 # Previous releases #
@@ -13,9 +14,11 @@ Updated algorithm of division point search.
 0.4 - file generation, program time analysis.
 0.5 - program analysis with 3 data structures.
 0.5fix - option to choose between generated and existing files.
-
+1.0 - completed initial program.
 
 ## Usage ##
+"make" - creates all the program files.
+"make clean" - cleans all the installed building files.
  Every folder contains independent program with different data structures.
  Folders _Vector_,_Deque_,_List_ contain program based on first division strategy.
  Folders _Vector2_,_Deque2_,_List2_ contain program based on second division strategy.
@@ -24,7 +27,6 @@ Updated algorithm of division point search.
  _generator.cpp_ file has the function to generate new files.
  _antrastes.h_ file has prototypes of functions and used directories.
  _analize.cpp_ file has the function for analysing programs work.
-_Makefile_ file connecting program together, o3 flag for faster performance.
 
 
 ## Program Testing ##
@@ -195,3 +197,23 @@ k for one time program usage from console, a for program analysis.
 3. k -> number of homework tasks -> calculate result with (m) median or (v) average -> input students name 
 -> input his grades or choose them to be generated -> repeat. Input "baigti darba" to get results.
 4. a -> input number of files to be tested -> choose (g) for new file or (s) for existing file -> input file name -> get results.
+
+## Flag performance analysis ##
+
+Flag perfomance analysis with 10 million students (5grades each);
+
+|       | None 	 | O1	 | O2	 | O3    |
+| Laikas| 110.102|81.9272|71.3786|80.6643|
+| Dydis | 3,144KB|3,283KB|3,140KB|3,151KB|
+Laikas - time the program took in seconds.
+Dydis - .exe file size.
+
+## Struct/Class analysis ##
+Used O2 flag since its the fastest.
+
+|Number of students| 100000  | 1000000|10000000|
+|Class (sec)       | 0.84666 |7.7331  |71.9592 |
+|Struct (sec)      | 0.925417|8.6865  |82.3759 |
+
+Overall, class is faster and code is easier to read using it.
+The fastest flag was O2, while no flag gave the worst performance.
