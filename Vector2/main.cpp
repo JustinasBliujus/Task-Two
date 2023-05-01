@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
         {
             studentas temp;
             pild(temp, paz_size);
-            if (temp.vardas == "baigti" && temp.pavarde == "darba")
+            if (temp.getVardas() == "baigti" && temp.getPavarde() == "darba")
             {
                 break;
             }
