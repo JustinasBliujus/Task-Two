@@ -1,10 +1,8 @@
 #include "antrastes.h"
-
-bool compare_by_baigiamasis(const studentas &a, const studentas &b)
+bool compareByGalVid(const studentas &s1, const studentas &s2)
 {
-    return a.baigiamasis < b.baigiamasis;
+    return s1.getGalVid() < s2.getGalVid();
 }
-
 void analize(vector<studentas> &grupe, int kiek)
 {
     for (int i = 0; i < kiek; i++)
@@ -64,20 +62,21 @@ void analize(vector<studentas> &grupe, int kiek)
         duration<double> diff = end - start;
         cout << "Failo " << failas << " nuskaitymas i vektoriu uztruko:  " << diff.count() << " s\n";
         total_diff += diff;
-
+        vector<double> baigiamasis;
+        baigiamasis.reserve(grupe.size());
         start = high_resolution_clock::now();
         for (int i = 0; i < grupe.size(); i++)
         {
-            grupe[i].baigiamasis = galutinis(grupe[i]);
+            baigiamasis[i] = grupe[i].getGalVid();
         }
-        std::sort(grupe.begin(), grupe.end(), compare_by_baigiamasis);
+        sort(grupe.begin(), grupe.end(), compareByGalVid);
         vector<studentas> levekai;
         levekai.reserve(grupe.size());
 
         auto it = std::remove_if(grupe.begin(), grupe.end(),
                                  [&](const studentas &student)
                                  {
-                                     if (student.baigiamasis < 5)
+                                     if (student.getGalVid() < 5)
                                      {
                                          levekai.push_back(student);
                                          return true;
@@ -86,15 +85,6 @@ void analize(vector<studentas> &grupe, int kiek)
                                  });
 
         grupe.erase(it, grupe.end());
-
-        // auto it = std::partition(grupe.begin(), grupe.end(),
-        //                          [](const studentas &student)
-        //                          {
-        //                              return student.baigiamasis >= 5;
-        //                          });
-        // vector<studentas> levekai(grupe.begin(), it);
-
-        // grupe.erase(grupe.begin(), it);
 
         end = high_resolution_clock::now();
         diff = end - start;
@@ -107,13 +97,8 @@ void analize(vector<studentas> &grupe, int kiek)
 
         for (int i = 0; i < levekai.size(); i++)
         {
-            file << setw(15) << levekai[i].vardas << setw(15) << levekai[i].pavarde;
-            for (int j = 0; j < levekai[i].paz.size(); j++)
-            {
-                file << setw(5) << levekai[i].paz[j] << " ";
-            }
-            file << setw(7) << levekai[i].egz;
-            file << setw(10) << setprecision(2) << fixed << levekai[i].baigiamasis << endl;
+            file << setw(15) << levekai[i].getVardas() << setw(15) << levekai[i].getPavarde();
+            file << setw(10) << setprecision(2) << fixed << levekai[i].getGalVid() << endl;
         }
 
         file.close();
@@ -127,13 +112,8 @@ void analize(vector<studentas> &grupe, int kiek)
         start = high_resolution_clock::now();
         for (int k = 0; k < grupe.size(); k++)
         {
-            anotherfile << setw(15) << grupe[k].vardas << setw(15) << grupe[k].pavarde;
-            for (int l = 0; l < grupe[k].paz.size(); l++)
-            {
-                anotherfile << setw(5) << grupe[k].paz[l] << " ";
-            }
-            anotherfile << setw(7) << grupe[k].egz;
-            anotherfile << setw(10) << setprecision(2) << fixed << grupe[k].baigiamasis << endl;
+            anotherfile << setw(15) << grupe[k].getVardas() << setw(15) << grupe[k].getPavarde();
+            anotherfile << setw(10) << setprecision(2) << fixed << grupe[k].getGalVid() << endl;
         }
 
         anotherfile.close();
@@ -143,16 +123,6 @@ void analize(vector<studentas> &grupe, int kiek)
         cout << "Failo " << file_name << " isvedimas uztruko: " << diff.count() << " s\n";
         total_diff += diff;
         cout << "Bendrai darbas su failu '" << failas << "' uztruko: " << total_diff.count() << " s\n";
-
-        for (auto it = grupe.begin(); it != grupe.end(); ++it)
-        {
-            it->paz.clear();
-        }
-        grupe.clear();
-        for (auto it = levekai.begin(); it != levekai.end(); ++it)
-        {
-            it->paz.clear();
-        }
         levekai.clear();
     }
 }
