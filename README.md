@@ -3,7 +3,7 @@
 
 Additions in this version of the project:
 Struct updated to class.
-O1,O2 and O3 flags compared
+O1,O2 and O3 flags compared.
 struct and class performance analytics.
 
 
