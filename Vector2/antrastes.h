@@ -57,6 +57,43 @@ public:
         GalMed_ = galutinisMediana(paz, egz);
         paz.clear();
     }
+    // copy constructor
+    studentas(const studentas &other)
+        : Vardas_(other.Vardas_), Pavarde_(other.Pavarde_), GalVid_(other.GalVid_), GalMed_(other.GalMed_) {}
+
+    // copy assignment operator
+    studentas &operator=(const studentas &other)
+    {
+        if (this != &other)
+        {
+            Vardas_ = other.Vardas_;
+            Pavarde_ = other.Pavarde_;
+            GalVid_ = other.GalVid_;
+            GalMed_ = other.GalMed_;
+        }
+        return *this;
+    }
+
+    // move constructor
+    studentas(studentas &&other) noexcept
+        : Vardas_(std::move(other.Vardas_)), Pavarde_(std::move(other.Pavarde_)),
+          GalVid_(std::move(other.GalVid_)), GalMed_(std::move(other.GalMed_)) {}
+
+    // move assignment operator
+    studentas &operator=(studentas &&other) noexcept
+    {
+        if (this != &other)
+        {
+            Vardas_ = std::move(other.Vardas_);
+            Pavarde_ = std::move(other.Pavarde_);
+            GalVid_ = std::move(other.GalVid_);
+            GalMed_ = std::move(other.GalMed_);
+        }
+        return *this;
+    }
+
+    // destructor
+    ~studentas() {}
 
     // getters
     string getVardas() const { return Vardas_; }
@@ -135,7 +172,6 @@ public:
     }
     bool operator<(const studentas &other) const
     {
-        // Compare the names lexicographically
         if (Vardas_ != other.Vardas_)
         {
             return Vardas_ < other.Vardas_;
@@ -153,6 +189,5 @@ void randomVal(vector<int> &pazymiai, int paz_size, int &egz);
 void Is_Failo(vector<studentas> &grupe, string read_vardas);
 bool compareStudentas(const studentas &a, const studentas &b);
 void analize(vector<studentas> &grupe, int kiek);
-bool compare_by_baigiamasis(const studentas &a, const studentas &b);
 string generator();
 #endif
