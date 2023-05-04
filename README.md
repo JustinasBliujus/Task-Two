@@ -1,10 +1,8 @@
-# V1.1 #
+# V1.2 #
 
 
 Additions in this version of the project:
-struct updated to class.
-O1,O2 and O3 flags compared.
-Struct and class performance analytics.
+Rule of five methods added.
 
 
 # Previous releases #
@@ -15,7 +13,7 @@ Struct and class performance analytics.
 0.5 - program analysis with 3 data structures.
 0.5fix - option to choose between generated and existing files.
 1.0 - completed initial program.
-
+1.1 - flags compared, struct and class analysis, class addition.
 ## Usage ##
 "make" - creates all the program files.
 "make clean" - cleans all the installed building files.
