@@ -38,17 +38,36 @@ using std::stringstream;
 using std::swap;
 using std::vector;
 using namespace std::chrono;
-class studentas
+class Zmogus
 {
-private:
+protected:
     string Vardas_;
     string Pavarde_;
+
+public:
+    // ==constructor
+    Zmogus() : Vardas_(""), Pavarde_("") {}
+
+    // getters
+    string getVardas() const { return Vardas_; }
+    string getPavarde() const { return Pavarde_; }
+
+    // setters
+    virtual void setVardas(const string &vardas) = 0;
+    virtual void setPavarde(const string &pavarde) = 0;
+
+    // destructor
+    virtual ~Zmogus() {}
+};
+class studentas : public Zmogus
+{
+private:
     double GalVid_;
     double GalMed_;
 
 public:
     // constructor
-    studentas() : Vardas_(""), Pavarde_(""), GalVid_(0), GalMed_(0) {}
+    studentas() : GalVid_(0), GalMed_(0) {}
     studentas(string vardas, string pavarde, vector<int> &paz, int egz)
     {
         Vardas_ = vardas;
@@ -59,7 +78,7 @@ public:
     }
     // copy constructor
     studentas(const studentas &other)
-        : Vardas_(other.Vardas_), Pavarde_(other.Pavarde_), GalVid_(other.GalVid_), GalMed_(other.GalMed_) {}
+        : GalVid_(other.GalVid_), GalMed_(other.GalMed_) {}
 
     // copy assignment operator
     studentas &operator=(const studentas &other)
@@ -76,8 +95,7 @@ public:
 
     // move constructor
     studentas(studentas &&other) noexcept
-        : Vardas_(std::move(other.Vardas_)), Pavarde_(std::move(other.Pavarde_)),
-          GalVid_(std::move(other.GalVid_)), GalMed_(std::move(other.GalMed_)) {}
+        : GalVid_(std::move(other.GalVid_)), GalMed_(std::move(other.GalMed_)) {}
 
     // move assignment operator
     studentas &operator=(studentas &&other) noexcept
