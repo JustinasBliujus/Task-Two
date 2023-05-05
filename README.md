@@ -1,8 +1,8 @@
-# V1.2 #
+# V1.5 #
 
 
 Additions in this version of the project:
-Rule of five methods added.
+Studentas class is now derivative from class Zmogus.
 
 
 # Previous releases #
@@ -14,6 +14,8 @@ Rule of five methods added.
 0.5fix - option to choose between generated and existing files.
 1.0 - completed initial program.
 1.1 - flags compared, struct and class analysis, class addition.
+1.2 - rule of five implemented.
+
 ## Usage ##
 "make" - creates all the program files.
 "make clean" - cleans all the installed building files.
