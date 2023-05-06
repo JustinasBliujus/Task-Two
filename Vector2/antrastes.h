@@ -38,23 +38,26 @@ using std::stringstream;
 using std::swap;
 using std::vector;
 using namespace std::chrono;
+
 class Zmogus
 {
 protected:
     string Vardas_;
     string Pavarde_;
 
-public:
-    // ==constructor
     Zmogus() : Vardas_(""), Pavarde_("") {}
+    // constructor
+    Zmogus(const string &vardas, const string &pavarde)
+        : Vardas_(vardas), Pavarde_(pavarde) {}
 
+public:
     // getters
     string getVardas() const { return Vardas_; }
     string getPavarde() const { return Pavarde_; }
 
     // setters
-    virtual void setVardas(const string &vardas) = 0;
-    virtual void setPavarde(const string &pavarde) = 0;
+    virtual void setVardas(const string &vardas) { Vardas_ = vardas; }
+    virtual void setPavarde(const string &pavarde) { Pavarde_ = pavarde; }
 
     // destructor
     virtual ~Zmogus() {}
@@ -69,24 +72,22 @@ public:
     // constructor
     studentas() : GalVid_(0), GalMed_(0) {}
     studentas(string vardas, string pavarde, vector<int> &paz, int egz)
+        : Zmogus(vardas, pavarde)
     {
-        Vardas_ = vardas;
-        Pavarde_ = pavarde;
         GalVid_ = galutinisVidurkis(paz, egz);
         GalMed_ = galutinisMediana(paz, egz);
         paz.clear();
     }
     // copy constructor
     studentas(const studentas &other)
-        : GalVid_(other.GalVid_), GalMed_(other.GalMed_) {}
+        : Zmogus(other), GalVid_(other.GalVid_), GalMed_(other.GalMed_) {}
 
     // copy assignment operator
     studentas &operator=(const studentas &other)
     {
         if (this != &other)
         {
-            Vardas_ = other.Vardas_;
-            Pavarde_ = other.Pavarde_;
+            Zmogus::operator=(other); // Invoke base class copy assignment operator
             GalVid_ = other.GalVid_;
             GalMed_ = other.GalMed_;
         }
@@ -95,15 +96,13 @@ public:
 
     // move constructor
     studentas(studentas &&other) noexcept
-        : GalVid_(std::move(other.GalVid_)), GalMed_(std::move(other.GalMed_)) {}
+        : Zmogus(std::move(other)), GalVid_(std::move(other.GalVid_)), GalMed_(std::move(other.GalMed_)) {}
 
-    // move assignment operator
     studentas &operator=(studentas &&other) noexcept
     {
         if (this != &other)
         {
-            Vardas_ = std::move(other.Vardas_);
-            Pavarde_ = std::move(other.Pavarde_);
+            Zmogus::operator=(std::move(other)); // Invoke base class move assignment operator
             GalVid_ = std::move(other.GalVid_);
             GalMed_ = std::move(other.GalMed_);
         }
@@ -169,7 +168,6 @@ public:
         stringstream fin(line);
 
         fin >> vardas >> pavarde;
-
         while (fin >> pazymys)
         {
             paz.push_back(pazymys);
@@ -183,7 +181,7 @@ public:
 
     friend std::ostream &operator<<(std::ostream &output, const studentas &stud)
     {
-        output << left << setw(15) << stud.Vardas_ << setw(21) << stud.Pavarde_
+        output << left << setw(15) << stud.getVardas() << setw(21) << stud.getPavarde()
                << setw(19) << fixed << setprecision(2) << stud.GalVid_
                << setw(20) << fixed << setprecision(2) << stud.GalMed_ << "\n";
         return output;
