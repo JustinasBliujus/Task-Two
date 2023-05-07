@@ -125,6 +125,7 @@ TEST(FriendFunctionTest, OperatorInputTest) <br />
 1.5 - Studentas class made derivative from class Zmogus.
 
 ## Usage ##
+Setup:
 Using exe file will create program shortcut, which opens console application. Follow commands there.
 
 "make" - creates all the program files.
