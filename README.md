@@ -2,9 +2,9 @@
 
 
 Additions in this version of the project:
-Doxygen documentation,
-unit tests,
-exe and setup files.
+Doxygen documentation (Doxygen/index.html)<br />
+unit tests,<br />
+exe and setup files.<br />
 
 # Unit Tests #
 
