@@ -9,106 +9,106 @@ exe and setup files.
 # Unit Tests #
 
 // Tests for the Zmogus class <br />
-TEST(ZmogusTest, GetterTests)
-{
-    Zmogus zmogus("Just", "Blue");
-    EXPECT_EQ(zmogus.getVardas(), "Just");
-    EXPECT_EQ(zmogus.getPavarde(), "Blue");
-}
+TEST(ZmogusTest, GetterTests) <br />
+{ <br />
+    Zmogus zmogus("Just", "Blue"); <br />
+    EXPECT_EQ(zmogus.getVardas(), "Just"); <br />
+    EXPECT_EQ(zmogus.getPavarde(), "Blue"); <br />
+} <br />
 
-TEST(ZmogusTest, SetterTests)
-{
-    Zmogus zmogus;
-    zmogus.setVardas("Just");
-    zmogus.setPavarde("Blue");
-    EXPECT_EQ(zmogus.getVardas(), "Just");
-    EXPECT_EQ(zmogus.getPavarde(), "Blue");
-}
+TEST(ZmogusTest, SetterTests) <br />
+{ <br />
+    Zmogus zmogus; <br />
+    zmogus.setVardas("Just"); <br /> 
+    zmogus.setPavarde("Blue"); <br />
+    EXPECT_EQ(zmogus.getVardas(), "Just"); <br />
+    EXPECT_EQ(zmogus.getPavarde(), "Blue"); <br />
+} <br />
 
-// Tests for the studentas class
-TEST(StudentasTest, ConstructorTests)
-{
-    std::vector<int> pazymiai = {8, 9, 8};
-    studentas stud("Just", "Blue", pazymiai, 9);
-    EXPECT_EQ(stud.getVardas(), "Just");
-    EXPECT_EQ(stud.getPavarde(), "Blue");
-    EXPECT_EQ(stud.getGalMed(), 8.6);
-}
+// Tests for the studentas class <br />
+TEST(StudentasTest, ConstructorTests) <br />
+{ <br />
+    std::vector<int> pazymiai = {8, 9, 8}; <br /> 
+    studentas stud("Just", "Blue", pazymiai, 9); <br />
+    EXPECT_EQ(stud.getVardas(), "Just"); <br />
+    EXPECT_EQ(stud.getPavarde(), "Blue"); <br />
+    EXPECT_EQ(stud.getGalMed(), 8.6); <br />
+} <br />
 
-TEST(StudentasTest, GetterTests)
-{
-    std::vector<int> pazymiai = {8, 9, 8};
-    int size = pazymiai.size();
-    int egz = 9, suma = 0;
-    for (int i = 0; i < size; i++)
-    {
-        suma = suma + pazymiai[i];
-    }
-    double vid = suma / size;
-    studentas stud("Just", "Blue", pazymiai, egz);
-    EXPECT_EQ(stud.getGalVid(), vid * 0.4 + 0.6 * egz);
-}
+TEST(StudentasTest, GetterTests) <br />
+{ <br />
+    std::vector<int> pazymiai = {8, 9, 8}; <br />
+    int size = pazymiai.size(); <br /> 
+    int egz = 9, suma = 0; <br /> 
+    for (int i = 0; i < size; i++) <br />
+    { <br /> 
+        suma = suma + pazymiai[i]; <br />
+    } <br />
+    double vid = suma / size; <br />
+    studentas stud("Just", "Blue", pazymiai, egz); <br />
+    EXPECT_EQ(stud.getGalVid(), vid * 0.4 + 0.6 * egz); <br />
+} <br />
 
-TEST(StudentasTest, SetterTests)
-{
-    studentas stud;
-    stud.setVardas("Just");
-    stud.setPavarde("Blue");
-    stud.setGalutinisVid(5);
-    stud.setGalutinisMed(4);
-    EXPECT_EQ(stud.getVardas(), "Just");
-    EXPECT_EQ(stud.getPavarde(), "Blue");
-    EXPECT_EQ(stud.getGalVid(), 5);
-    EXPECT_EQ(stud.getGalMed(), 4);
-}
+TEST(StudentasTest, SetterTests) <br />
+{ <br />
+    studentas stud; <br />
+    stud.setVardas("Just"); <br />
+    stud.setPavarde("Blue"); <br />
+    stud.setGalutinisVid(5); <br />
+    stud.setGalutinisMed(4); v
+    EXPECT_EQ(stud.getVardas(), "Just"); <br />
+    EXPECT_EQ(stud.getPavarde(), "Blue"); <br />
+    EXPECT_EQ(stud.getGalVid(), 5); <br />
+    EXPECT_EQ(stud.getGalMed(), 4); <br />
+} <br />
 
-// Tests for friend functions
-TEST(FriendFunctionTest, OperatorInputTest)
-{
-    std::istringstream input("Just Blue 8 9 8 9\n");
-    std::vector<studentas> students;
-    input >> students;
-    EXPECT_EQ(students.size(), 1);
-}
+// Tests for friend functions <br />
+TEST(FriendFunctionTest, OperatorInputTest) <br />
+{ <br />
+    std::istringstream input("Just Blue 8 9 8 9\n"); <br /> 
+    std::vector<studentas> students; <br />
+    input >> students; <br />
+    EXPECT_EQ(students.size(), 1); <br />
+} <br />
 
 # Tests Output #
 
-[ctest] [==========] Running 6 tests from 3 test suites.
-[ctest] [----------] Global test environment set-up.
-[ctest] [----------] 2 tests from ZmogusTest
-[ctest] [ RUN      ] ZmogusTest.GetterTests
-[ctest] [       OK ] ZmogusTest.GetterTests (0 ms)
-[ctest] [ RUN      ] ZmogusTest.SetterTests
-[ctest] [       OK ] ZmogusTest.SetterTests (0 ms)
-[ctest] [----------] 2 tests from ZmogusTest (0 ms total)
-[ctest] 
-[ctest] [----------] 3 tests from StudentasTest
-[ctest] [ RUN      ] StudentasTest.ConstructorTests
-[ctest] [       OK ] StudentasTest.ConstructorTests (0 ms)
-[ctest] [ RUN      ] StudentasTest.GetterTests
-[ctest] error: Expected equality of these values:
-[ctest]   stud.getGalVid()
-[ctest]     Which is: 8.7333333333333343
-[ctest]   vid * 0.4 + 0.6 * egz
-[ctest]     Which is: 8.6
-[ctest] 
-[ctest] [  FAILED  ] StudentasTest.GetterTests (3 ms)
-[ctest] [ RUN      ] StudentasTest.SetterTests
-[ctest] [       OK ] StudentasTest.SetterTests (0 ms)
-[ctest] [----------] 3 tests from StudentasTest (3 ms total)
-[ctest] 
-[ctest] [----------] 1 test from FriendFunctionTest
-[ctest] [ RUN      ] FriendFunctionTest.OperatorInputTest
-[ctest] [       OK ] FriendFunctionTest.OperatorInputTest (0 ms)
-[ctest] [----------] 1 test from FriendFunctionTest (0 ms total)
-[ctest] 
-[ctest] [----------] Global test environment tear-down
-[ctest] [==========] 6 tests from 3 test suites ran. (7 ms total)
-[ctest] [  PASSED  ] 5 tests.
-[ctest] [  FAILED  ] 1 test, listed below:
-[ctest] [  FAILED  ] StudentasTest.GetterTests
-[ctest] 
-[ctest]  1 FAILED TEST
+[ctest] [==========] Running 6 tests from 3 test suites. <br />
+[ctest] [----------] Global test environment set-up. <br /> 
+[ctest] [----------] 2 tests from ZmogusTest <br />
+[ctest] [ RUN      ] ZmogusTest.GetterTests <br />
+[ctest] [       OK ] ZmogusTest.GetterTests (0 ms) <br />
+[ctest] [ RUN      ] ZmogusTest.SetterTests <br />
+[ctest] [       OK ] ZmogusTest.SetterTests (0 ms) <br />
+[ctest] [----------] 2 tests from ZmogusTest (0 ms total)<br />
+[ctest] <br />
+[ctest] [----------] 3 tests from StudentasTest<br />
+[ctest] [ RUN      ] StudentasTest.ConstructorTests<br />
+[ctest] [       OK ] StudentasTest.ConstructorTests (0 ms)<br />
+[ctest] [ RUN      ] StudentasTest.GetterTests<br />
+[ctest] error: Expected equality of these values:<br />
+[ctest]   stud.getGalVid()<br />
+[ctest]     Which is: 8.7333333333333343<br />
+[ctest]   vid * 0.4 + 0.6 * egz<br />
+[ctest]     Which is: 8.6<br />
+[ctest] <br />
+[ctest] [  FAILED  ] StudentasTest.GetterTests (3 ms)<br />
+[ctest] [ RUN      ] StudentasTest.SetterTests<br />
+[ctest] [       OK ] StudentasTest.SetterTests (0 ms)<br />
+[ctest] [----------] 3 tests from StudentasTest (3 ms total)<br />
+[ctest] <br />
+[ctest] [----------] 1 test from FriendFunctionTest<br />
+[ctest] [ RUN      ] FriendFunctionTest.OperatorInputTest<br />
+[ctest] [       OK ] FriendFunctionTest.OperatorInputTest (0 ms)<br />
+[ctest] [----------] 1 test from FriendFunctionTest (0 ms total)<br />
+[ctest] <br />
+[ctest] [----------] Global test environment tear-down<br />
+[ctest] [==========] 6 tests from 3 test suites ran. (7 ms total)<br />
+[ctest] [  PASSED  ] 5 tests.<br />
+[ctest] [  FAILED  ] 1 test, listed below:<br />
+[ctest] [  FAILED  ] StudentasTest.GetterTests<br />
+[ctest] <br />
+[ctest]  1 FAILED TEST<br />
 
 
 
