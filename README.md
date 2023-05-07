@@ -8,13 +8,13 @@ exe and setup files.
 
 # Unit Tests #
 
-// Tests for the Zmogus class
-TEST(ZmogusTest, GetterTests)__
-{__
-    Zmogus zmogus("Just", "Blue");__
-    EXPECT_EQ(zmogus.getVardas(), "Just");__
-    EXPECT_EQ(zmogus.getPavarde(), "Blue");__
-}__
+// Tests for the Zmogus class <br />
+TEST(ZmogusTest, GetterTests)
+{
+    Zmogus zmogus("Just", "Blue");
+    EXPECT_EQ(zmogus.getVardas(), "Just");
+    EXPECT_EQ(zmogus.getPavarde(), "Blue");
+}
 
 TEST(ZmogusTest, SetterTests)
 {
