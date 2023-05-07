@@ -2,7 +2,114 @@
 
 
 Additions in this version of the project:
-Studentas class is now derivative from class Zmogus.
+Doxygen documentation,
+unit tests,
+exe and setup files.
+
+# Unit Tests #
+
+// Tests for the Zmogus class
+TEST(ZmogusTest, GetterTests)
+{
+    Zmogus zmogus("Just", "Blue");
+    EXPECT_EQ(zmogus.getVardas(), "Just");
+    EXPECT_EQ(zmogus.getPavarde(), "Blue");
+}
+
+TEST(ZmogusTest, SetterTests)
+{
+    Zmogus zmogus;
+    zmogus.setVardas("Just");
+    zmogus.setPavarde("Blue");
+    EXPECT_EQ(zmogus.getVardas(), "Just");
+    EXPECT_EQ(zmogus.getPavarde(), "Blue");
+}
+
+// Tests for the studentas class
+TEST(StudentasTest, ConstructorTests)
+{
+    std::vector<int> pazymiai = {8, 9, 8};
+    studentas stud("Just", "Blue", pazymiai, 9);
+    EXPECT_EQ(stud.getVardas(), "Just");
+    EXPECT_EQ(stud.getPavarde(), "Blue");
+    EXPECT_EQ(stud.getGalMed(), 8.6);
+}
+
+TEST(StudentasTest, GetterTests)
+{
+    std::vector<int> pazymiai = {8, 9, 8};
+    int size = pazymiai.size();
+    int egz = 9, suma = 0;
+    for (int i = 0; i < size; i++)
+    {
+        suma = suma + pazymiai[i];
+    }
+    double vid = suma / size;
+    studentas stud("Just", "Blue", pazymiai, egz);
+    EXPECT_EQ(stud.getGalVid(), vid * 0.4 + 0.6 * egz);
+}
+
+TEST(StudentasTest, SetterTests)
+{
+    studentas stud;
+    stud.setVardas("Just");
+    stud.setPavarde("Blue");
+    stud.setGalutinisVid(5);
+    stud.setGalutinisMed(4);
+    EXPECT_EQ(stud.getVardas(), "Just");
+    EXPECT_EQ(stud.getPavarde(), "Blue");
+    EXPECT_EQ(stud.getGalVid(), 5);
+    EXPECT_EQ(stud.getGalMed(), 4);
+}
+
+// Tests for friend functions
+TEST(FriendFunctionTest, OperatorInputTest)
+{
+    std::istringstream input("Just Blue 8 9 8 9\n");
+    std::vector<studentas> students;
+    input >> students;
+    EXPECT_EQ(students.size(), 1);
+}
+
+# Tests Output #
+
+[ctest] [==========] Running 6 tests from 3 test suites.
+[ctest] [----------] Global test environment set-up.
+[ctest] [----------] 2 tests from ZmogusTest
+[ctest] [ RUN      ] ZmogusTest.GetterTests
+[ctest] [       OK ] ZmogusTest.GetterTests (0 ms)
+[ctest] [ RUN      ] ZmogusTest.SetterTests
+[ctest] [       OK ] ZmogusTest.SetterTests (0 ms)
+[ctest] [----------] 2 tests from ZmogusTest (0 ms total)
+[ctest] 
+[ctest] [----------] 3 tests from StudentasTest
+[ctest] [ RUN      ] StudentasTest.ConstructorTests
+[ctest] [       OK ] StudentasTest.ConstructorTests (0 ms)
+[ctest] [ RUN      ] StudentasTest.GetterTests
+[ctest] error: Expected equality of these values:
+[ctest]   stud.getGalVid()
+[ctest]     Which is: 8.7333333333333343
+[ctest]   vid * 0.4 + 0.6 * egz
+[ctest]     Which is: 8.6
+[ctest] 
+[ctest] [  FAILED  ] StudentasTest.GetterTests (3 ms)
+[ctest] [ RUN      ] StudentasTest.SetterTests
+[ctest] [       OK ] StudentasTest.SetterTests (0 ms)
+[ctest] [----------] 3 tests from StudentasTest (3 ms total)
+[ctest] 
+[ctest] [----------] 1 test from FriendFunctionTest
+[ctest] [ RUN      ] FriendFunctionTest.OperatorInputTest
+[ctest] [       OK ] FriendFunctionTest.OperatorInputTest (0 ms)
+[ctest] [----------] 1 test from FriendFunctionTest (0 ms total)
+[ctest] 
+[ctest] [----------] Global test environment tear-down
+[ctest] [==========] 6 tests from 3 test suites ran. (7 ms total)
+[ctest] [  PASSED  ] 5 tests.
+[ctest] [  FAILED  ] 1 test, listed below:
+[ctest] [  FAILED  ] StudentasTest.GetterTests
+[ctest] 
+[ctest]  1 FAILED TEST
+
 
 
 # Previous releases #
@@ -15,8 +122,11 @@ Studentas class is now derivative from class Zmogus.
 1.0 - completed initial program.
 1.1 - flags compared, struct and class analysis, class addition.
 1.2 - rule of five implemented.
+1.5 - Studentas class made derivative from class Zmogus.
 
 ## Usage ##
+Using exe file will create program shortcut, which opens console application. Follow commands there.
+
 "make" - creates all the program files.
 "make clean" - cleans all the installed building files.
  Every folder contains independent program with different data structures.
