@@ -1,4 +1,13 @@
 #include "antrastes.h"
+/**
+ * @brief Generates a file with student data.
+ *
+ * This function generates a file with randomly generated student data.
+ * The user is prompted to enter the number of students to generate and the number of grades each student will have.
+ * The generated data includes student names, grades, and an exam score.
+ *
+ * @return The name of the generated file.
+ */
 string generator()
 {
   int sk_studentu, pz_sk;
@@ -45,13 +54,6 @@ string generator()
   {
     std::cerr << "Failed to create file!" << endl;
   }
-  // file << setw(15) << "Vardas" << setw(15) << "Pavarde";
-  // for (int i = 0; i < pz_sk; i++)
-  // {
-  //   file << setw(5) << "nd" + std::to_string(i + 1) << " ";
-  // }
-  //  file << setw(10) << "egzaminas" << endl;
-
   for (int i = 1; i <= sk_studentu; i++)
   {
     string first_name = "Vardas" + std::to_string(i);
