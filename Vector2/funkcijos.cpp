@@ -1,5 +1,13 @@
 #include "antrastes.h"
-void Is_Failo(vector<studentas> &grupe, string read_vardas)
+/**
+ * @brief Reads student data from a file input and stores it in a vector.
+ *
+ * The student data is stored in the provided vector.
+ *
+ * @param grupe Reference to the vector of student objects.
+ * @param read_vardas File name or an empty string to prompt the user for input.
+ */
+void Is_Failo(CustomVector<studentas> &grupe, string read_vardas)
 {
     bool reikia_spausdinti = false;
     ifstream input_file;
@@ -52,9 +60,15 @@ void Is_Failo(vector<studentas> &grupe, string read_vardas)
             }
         } while (true);
     }
+    int perskirstymas = 0;
     while (input_file >> grupe)
     {
+        if (grupe.size() == grupe.capacity())
+        {
+            perskirstymas++;
+        }
     }
+    cout << "Buvo " << perskirstymas << " perskirtymu."<<endl;
 
     input_file.close();
     sort(grupe.begin(), grupe.end(), [](const studentas &a, const studentas &b)
@@ -68,7 +82,15 @@ void Is_Failo(vector<studentas> &grupe, string read_vardas)
         }
     }
 }
-
+/**
+ * @brief Prompts the user to enter student data.
+ *
+ * This function prompts the user to enter the student's name, surname, and grades.
+ * It handles special inputs such as ending the data entry or generating random grades.
+ *
+ * @param temp Reference to the student object to store the entered data.
+ * @param paz_size Number of grades to be entered.
+ */
 void pild(studentas &temp, int paz_size)
 {
     string v, p;
@@ -83,7 +105,7 @@ void pild(studentas &temp, int paz_size)
     double paz = -1;
     int pazymys;
     int egz;
-    vector<int> pazymiai;
+    CustomVector<int> pazymiai;
     cout << "Iveskite pazymius. Noredami sustabdyti pazymiu ivedima, iveskite \"-1\": ";
     cout << "Noredami generuoti atsitiktinius pazymius ir egzamina, iveskite \"-2\": ";
     bool validInput;
@@ -148,7 +170,15 @@ void pild(studentas &temp, int paz_size)
     temp.setGalutinisVid(temp.galutinisVidurkis(pazymiai, egz));
     temp.setGalutinisMed(temp.galutinisMediana(pazymiai, egz));
 }
-
+/**
+ * @brief Prints the student's data to the console.
+ *
+ * This function prints the student's name, surname, and either the average or median
+ * final grade, depending on the provided answer ('v' or 'm').
+ *
+ * @param temp Reference to the student object.
+ * @param atsakymas Answer indicating whether to print the average or median grade.
+ */
 void spausd(studentas &temp, char atsakymas)
 {
     cout << setw(15) << temp.getVardas() << setw(15) << temp.getPavarde();
@@ -162,8 +192,18 @@ void spausd(studentas &temp, char atsakymas)
         cout << setw(10) << setprecision(2) << setw(20) << setprecision(2) << fixed << temp.getGalMed();
     }
 }
-
-void randomVal(vector<int> &pazymiai, int paz_size, int &egz)
+/**
+ * @brief Generates random grades.
+ *
+ * This function generates random grades using a random number generator.
+ * The generated grades are stored in the provided vector, and the randomly generated
+ * exam grade is stored in the 'egz' variable.
+ *
+ * @param pazymiai Reference to the vector to store the generated grades.
+ * @param paz_size Number of grades to generate.
+ * @param egz Reference to the variable to store the generated exam grade.
+ */
+void randomVal(CustomVector<int> &pazymiai, int paz_size, int &egz)
 {
     std::random_device rd;
     std::mt19937_64 mt(static_cast<long unsigned int>(rd()));
