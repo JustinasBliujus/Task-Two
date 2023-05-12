@@ -1,5 +1,4 @@
 #include "antrastes.h"
-
 int main(int argc, char *argv[])
 {
     char tipas;
@@ -17,7 +16,7 @@ int main(int argc, char *argv[])
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
     }
-    vector<studentas> grupe;
+    CustomVector<studentas> grupe;
     int paz_size;
     if (tipas == 'k')
     {
