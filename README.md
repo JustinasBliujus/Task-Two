@@ -1,37 +1,37 @@
 # V3.0 #
 
 
-Additions in this version of the project:
-Custom Vector class experiments
+Additions in this version of the project: <br />
+Custom Vector class experiments <br />
 
-Functions tested:
-shrink_to_fit()
-clear()
-push_back()
-back()
-begin()
-All expected outputs were correct.
+Functions tested:<br />
+shrink_to_fit()<br />
+clear()<br />
+push_back()<br />
+back()<br />
+begin()<br />
+All expected outputs were correct.<br />
 
-Experementing with ordinary and custom vectors:
+Experementing with ordinary and custom vectors:<br />
 
-unsigned int sz = 10000; // 100000, 1000000, 10000000, 100000000
-    auto start = high_resolution_clock::now();
-    std::vector<int> v1;
-    for (int i = 1; i <= sz; ++i)
-        v1.push_back(i);
-    auto end = high_resolution_clock::now();
-    duration<double> diff = end - start;
-    cout << "standartinio vektoriaus laikas: " << diff.count() << " s\n";
+unsigned int sz = 10000; // 100000, 1000000, 10000000, 100000000<br />
+    auto start = high_resolution_clock::now();<br />
+    std::vector<int> v1;<br />
+    for (int i = 1; i <= sz; ++i)<br />
+        v1.push_back(i);<br />
+    auto end = high_resolution_clock::now();<br />
+    duration<double> diff = end - start;<br />
+    cout << "standartinio vektoriaus laikas: " << diff.count() << " s\n";<br />
 
-    start = high_resolution_clock::now();
-    CustomVector<int> v2;
-    for (int i = 1; i <= sz; ++i)
-        v2.push_back(i);
-    end = high_resolution_clock::now();
-    diff = end - start;
-    cout << "Custom vektoriaus laikas: " << diff.count() << " s\n";
+    start = high_resolution_clock::now();<br />
+    CustomVector<int> v2;<br />
+    for (int i = 1; i <= sz; ++i)<br />
+        v2.push_back(i);<br />
+    end = high_resolution_clock::now();<br />
+    diff = end - start;<br />
+    cout << "Custom vektoriaus laikas: " << diff.count() << " s\n";<br />
 
-Results:
+Results:<br />
 | Student count     | vector time 	    |Custom Vector time  | 
   |--------------	|------------------	|--------------------|  
   | 100000         	| 0.0019            | 0.000996           |
@@ -40,24 +40,24 @@ Results:
   | 100000000      	| 1.42236          	| 0.925335  	     |              
         
 
-Atminties perskirstymu palyginimas:
-   while (input_file >> grupe)
-    {
-        if (grupe.size() == grupe.capacity())
-        {
-            perskirstymas++;
-        }
-    }
-    cout << "Buvo " << perskirstymas << " perskirtymu."<<endl;
+Atminties perskirstymu palyginimas:<br />
+   while (input_file >> grupe)<br />
+    {<br />
+        if (grupe.size() == grupe.capacity())<br />
+        {<br />
+            perskirstymas++;<br />
+        }<br />
+    }<br />
+    cout << "Buvo " << perskirstymas << " perskirtymu."<<endl;<br />
 
-Result:
-vector - 20 kartu
-CustomVector - 20 kartu
+Result:<br />
+vector - 20 kartu<br />
+CustomVector - 20 kartu<br />
     
     
-Palyginimas programos veikimo su vektoriais:
-Su Custom Vector - "Bendrai darbas su failu 'studentai100000.txt' uztruko: 1.53306 s"
-Su vector - "Bendrai darbas su failu 'studentai100000.txt' uztruko: 1.503 s"
+Palyginimas programos veikimo su vektoriais:<br />
+Su Custom Vector - "Bendrai darbas su failu 'studentai100000.txt' uztruko: 1.53306 s"<br />
+Su vector - "Bendrai darbas su failu 'studentai100000.txt' uztruko: 1.503 s"<br />
     
     
     
