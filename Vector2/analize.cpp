@@ -1,9 +1,27 @@
 #include "antrastes.h"
+/**
+ * @brief Compares student objects by their GalVid attribute.
+ *
+ * @param s1 First student object.
+ * @param s2 Second student object.
+ * @return true if s1's GalVid is less than s2's GalVid, false otherwise.
+ */
 bool compareByGalVid(const studentas &s1, const studentas &s2)
 {
     return s1.getGalVid() < s2.getGalVid();
 }
-void analize(vector<studentas> &grupe, int kiek)
+/**
+ * @brief Analyzes student data.
+ *
+ * This function analyzes the student data by reading it from a file or generating it,
+ * calculating the final grades, sorting the students based on their grades, and
+ * separating the students with grades below 5 into a separate vector. It also outputs
+ * the processing times for different operations.
+ *
+ * @param grupe Reference to the vector of student objects.
+ * @param kiek Number of iterations (number of files to be analyzed).
+ */
+void analize(CustomVector<studentas> &grupe, int kiek)
 {
     for (int i = 0; i < kiek; i++)
     {
@@ -62,7 +80,7 @@ void analize(vector<studentas> &grupe, int kiek)
         duration<double> diff = end - start;
         cout << "Failo " << failas << " nuskaitymas i vektoriu uztruko:  " << diff.count() << " s\n";
         total_diff += diff;
-        vector<double> baigiamasis;
+        CustomVector<double> baigiamasis;
         baigiamasis.reserve(grupe.size());
         start = high_resolution_clock::now();
         for (int i = 0; i < grupe.size(); i++)
@@ -70,7 +88,7 @@ void analize(vector<studentas> &grupe, int kiek)
             baigiamasis[i] = grupe[i].getGalVid();
         }
         sort(grupe.begin(), grupe.end(), compareByGalVid);
-        vector<studentas> levekai;
+        CustomVector<studentas> levekai;
         levekai.reserve(grupe.size());
 
         auto it = std::remove_if(grupe.begin(), grupe.end(),
