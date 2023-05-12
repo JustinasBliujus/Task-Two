@@ -22,7 +22,6 @@ unsigned int sz = 10000; // 100000, 1000000, 10000000, 100000000<br />
     auto end = high_resolution_clock::now();<br />
     duration<double> diff = end - start;<br />
     cout << "standartinio vektoriaus laikas: " << diff.count() << " s\n";<br />
-
     start = high_resolution_clock::now();<br />
     CustomVector<int> v2;<br />
     for (int i = 1; i <= sz; ++i)<br />
