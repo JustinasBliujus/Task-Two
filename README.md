@@ -1,11 +1,68 @@
-# V2.0 #
+# V3.0 #
 
 
 Additions in this version of the project:
-Doxygen documentation (Doxygen/index.html)<br />
-unit tests,<br />
-exe and setup files.<br />
+Custom Vector class experiments
 
+Functions tested:
+shrink_to_fit()
+clear()
+push_back()
+back()
+begin()
+All expected outputs were correct.
+
+Experementing with ordinary and custom vectors:
+
+unsigned int sz = 10000; // 100000, 1000000, 10000000, 100000000
+    auto start = high_resolution_clock::now();
+    std::vector<int> v1;
+    for (int i = 1; i <= sz; ++i)
+        v1.push_back(i);
+    auto end = high_resolution_clock::now();
+    duration<double> diff = end - start;
+    cout << "standartinio vektoriaus laikas: " << diff.count() << " s\n";
+
+    start = high_resolution_clock::now();
+    CustomVector<int> v2;
+    for (int i = 1; i <= sz; ++i)
+        v2.push_back(i);
+    end = high_resolution_clock::now();
+    diff = end - start;
+    cout << "Custom vektoriaus laikas: " << diff.count() << " s\n";
+
+Results:
+| Student count     | vector time 	    |Custom Vector time  | 
+  |--------------	|------------------	|--------------------|  
+  | 100000         	| 0.0019            | 0.000996           |
+  | 1000000        	| 0.020912          | 0.017014 	         |
+  | 10000000       	| 0.146934          | 0.12139  	         |         
+  | 100000000      	| 1.42236          	| 0.925335  	     |              
+        
+
+Atminties perskirstymu palyginimas:
+   while (input_file >> grupe)
+    {
+        if (grupe.size() == grupe.capacity())
+        {
+            perskirstymas++;
+        }
+    }
+    cout << "Buvo " << perskirstymas << " perskirtymu."<<endl;
+
+Result:
+vector - 20 kartu
+CustomVector - 20 kartu
+    
+    
+Palyginimas programos veikimo su vektoriais:
+Su Custom Vector - "Bendrai darbas su failu 'studentai100000.txt' uztruko: 1.53306 s"
+Su vector - "Bendrai darbas su failu 'studentai100000.txt' uztruko: 1.503 s"
+    
+    
+    
+    
+    
 # Unit Tests #
 
 // Tests for the Zmogus class <br />
